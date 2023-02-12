@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import com.qa.base.TestBase;
 import com.qa.pages.HomePage;
 import com.qa.pages.LoginPage;
+import com.qa.pages.NotificationPage;
 
 import org.testng.annotations.BeforeMethod;
 
@@ -22,6 +23,7 @@ public class HomeTest extends TestBase {
 
 	HomePage homepage;
 	LoginPage loginpage;
+	NotificationPage notificationpage;
 
 	@BeforeMethod
 	public void beforeMethod() throws IOException {
@@ -36,13 +38,15 @@ public class HomeTest extends TestBase {
 	}
 
 	@Test(priority = 1)
-	public void verifyHomePageLinkPresentTest() {
-	Assert.assertTrue(homepage.verifyHomePageLinkPresent());	
+	public void verifyHomePageLinkPresentTest() throws IOException {
+	//Assert.assertTrue(homepage.verifyHomePageLinkPresent());
+		homepage = homepage.verifyHomePageLinkPresent();
 	}
 	
 	@Test(priority = 2)
-	public void verifyNotificationLinkPresentTest() {
-		Assert.assertTrue(homepage.verifyNotificationLinkPresent());
+	public void verifyNotificationLinkPresentTest() throws IOException {
+		//Assert.assertTrue(homepage.verifyNotificationLinkPresent());
+		 homepage.verifyNotificationLinkPresent();
 	}
 
 	@AfterMethod

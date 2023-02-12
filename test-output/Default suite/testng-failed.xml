@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.qa.tests.HomeTest">
+      <class name="com.qa.tests.WorkspaceTest">
         <methods>
-          <include name="verifyNotificationLinkPresentTest"/>
-          <include name="beforeMethod"/>
           <include name="afterMethod"/>
+          <include name="workspacehoverTest"/>
+          <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.qa.tests.HomeTest -->
+      </class> <!-- com.qa.tests.WorkspaceTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

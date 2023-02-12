@@ -4,20 +4,21 @@ import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.qa.base.TestBase;
 
 public class HomePage extends TestBase {
 	
-	//@FindBy(id = "notifications-button")
+	//@FindBy(xpath = "//div[@class='surface-navigation-dialog-item-component']")
 	//WebElement notificationLink;
+	
+	@FindBy(xpath = "//img[@class=\"surface-item-image\"]")
+	WebElement homepageLink;
 	
 	@FindBy(xpath = "//div[@class='surface-navigation-dialog-item-component']")
 	WebElement notificationLink;
-	
-	@FindBy(id = "homepage-button")
-	WebElement homepageLink;
 	
 	public HomePage() throws IOException {
 		super();
@@ -25,13 +26,19 @@ public class HomePage extends TestBase {
 	}
 	
 
-	public boolean verifyHomePageLinkPresent() {
-		return homepageLink.isDisplayed();
+	public HomePage verifyHomePageLinkPresent() throws IOException {
+		//return homepageLink.isDisplayed();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(homepageLink).click().build().perform();
+		return new HomePage();
 		
 	}
 	
-	public boolean verifyNotificationLinkPresent() {
-		return notificationLink.isDisplayed();
+	public void verifyNotificationLinkPresent() throws IOException {
+		//return notificationLink.isDisplayed();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(notificationLink).click().build().perform();
+		//return new NotificationPage();
 	}
 
 }
